@@ -1,5 +1,7 @@
 # Keyboard Kingdom
 
+[Play the Game](https://exevirus.github.io/Keyboard-Kingdom)
+
 ```
 Build your kingdom,
 Defend your kingdom,
