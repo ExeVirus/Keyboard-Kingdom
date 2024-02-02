@@ -60,3 +60,7 @@ Only needs like 10 different kinds of enemies or something, most of the variety 
 ### Day 1
 
 Created this readme and repository.
+
+### Day 2
+
+Turns out Github (GH) is great for hosting your plain html sites - ideal for hosting my game right here from the repository. I went ahead and made index.html, which is alway what is loaded by the website by default. I may have to write the entire game in that single file, just so load times don't suffer for all of you. Assets would still be loaded separately, but at least I could make the game there. Went ahead and put the worlds smallest snake implementation there, it's literally 384 bytes, dang. So now the game is hosted [here](https://exevirus.github.io/Keyboard-Kingdom)
