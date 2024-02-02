@@ -15,8 +15,8 @@ Or in Haiku form:
 
 ```
      Create your great kingdom.
-  Practice, Defend, this kingdom.
-       Transcend the kingdom.
+   Defend, Cherish, this kingdom.
+      Transcend the kingdom.
 ```
 
 # Rough Idea
