@@ -15,7 +15,7 @@ Or in Haiku form:
 
 ```
      Create your great kingdom.
-   Defend, Cherish, this kingdom.
+   Defend, cherish, this kingdom.
       Transcend the kingdom.
 ```
 
