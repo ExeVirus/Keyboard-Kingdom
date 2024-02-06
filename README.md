@@ -68,3 +68,11 @@ Turns out Github (GH) is great for hosting your plain html sites - ideal for hos
 ### Day 3 & 4: 
 
 Yeah nothing - did have an idea inspired by Paul - One of the game modes will randomize the placement of the keys on the keyboard layout :)
+
+### Day 5:
+
+Well, I'm not quite sold on it yet, but it looks like I'll be using [phaser 3](https://phaser.io/phaser3) as my framework. I worry it will be too wordy or API heavy, but I think I see my path pretty straightforward - pretty much everything becomes a callback in this design or uses delta-time and I just hope the framerate stays at 60 FPS.
+
+I figure it won't be too rediculous considering that my game loop is "detect keys", move up to 100 things left, do collision detections, handle callbacks, done. 
+
+So I guess my next step is get hello world made: background image + keyboard image for layout (It'll probably just be static and 16:9 scale in a 1280x720 screen) + Kingdom image for the left four keys + detection of keydown events across the 53 total keys in the first go of this. The first four keys will result in a number go up, and the other keys will merely create an animatied explosion when pressed. No enemies yet. 
