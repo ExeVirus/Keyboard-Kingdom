@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html background-color="black">
 <head>
+    <link href=" https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css " rel="stylesheet">
+    <style> html { background-color: black; } </style>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.70.0/dist/phaser-arcade-physics.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 </head>
 <body>
     <script>
+    
     class WebFontFile extends Phaser.Loader.File
     {
         /**
@@ -44,7 +47,7 @@
                     throw new Error('Unsupported font service')
             }
             
-            WebFontLoader.load(config)
+            window.WebFont.load(config)
         }
     }
     class Example extends Phaser.Scene
@@ -56,37 +59,36 @@
 
         preload ()
         {
-            this.load.setBaseURL('https://exevirus.github.io/Keyboard-Kingdom');
+            this.load.setBaseURL('https://exevirus.github.io/Keyboard-Kingdom/');
             this.load.addFile(new WebFontFile(this.load, 'Bungee'))
-            this.load.image('red', 'keyboard.png');
+            this.load.image('key', 'keyboard.png');
         }
 
         create ()
         {
-            const particles = this.add.particles(0, 0, 'key', {
-                speed: 100,
-                scale: { start: 0.1, end: 0 },
-                blendMode: 'ADD'
+            const particles = this.add.particles(1280/2, 320, 'key', {
+                speed: 500,
+                scale: { start: 0.5, end: 0.2 }
             });
 
-            const logo = this.add.text(400, 300, 'Hello World!', {
+            const logo = this.add.text(1280/2-290, 180, 'Keyboard Kingdom!', {
 			    fontFamily: '"Bungee"',
-			    fontSize: '50px'
+			    fontSize: '50px',
+                origin: { x: 0.5, y: 0.5 }
 		    })
-
-            logo.setVelocity(100, 200);
-            logo.setBounce(1, 1);
-            logo.setCollideWorldBounds(true);
-
-            particles.startFollow(logo);
         }
     }
 
     const config = {
         type: Phaser.AUTO,
-        width: 800,
-        height: 600,
+        width: 1280,
+        height: 720,
         scene: Example,
+        scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: true
+        },
+        backgroundColor: 0x000000, // Black background color
         physics: {
             default: 'arcade',
             arcade: {
