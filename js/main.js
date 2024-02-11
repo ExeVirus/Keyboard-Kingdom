@@ -11,27 +11,14 @@ class Main extends Phaser.Scene
         this.imageFile = data.image;
     }
 
-    preload ()
-    {
-        this.load.setBaseURL('../');
-        
-        //------------------------ Fonts ------------------------
-        this.load.addFile(new WebFontFile(this.load, 'Bungee'))
-
-        //------------------------ Music ------------------------
-        
-        //-------------------- Sound Effects --------------------
-        
-        //----------------------- Textures ----------------------
-        this.load.image('key', 'keyboard.png');
-    }
+    preload () {}
 
     create ()
     {
         let centerX = this.scale.parentSize.width / 2 
         let centerY = this.scale.parentSize.height / 2
 
-        const particles = this.add.particles(centerX, centerY+100, 'key', {
+        const particles = this.add.particles(centerX, centerY+100, 'keyboard', {
             speed: 500,
             scale: { start: 0.7, end: 0.2 }
         });
