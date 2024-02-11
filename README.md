@@ -54,6 +54,28 @@ I'll build it in html5 + canvas element. keyboard-js for input, LOTS of timer co
 
 Only needs like 10 different kinds of enemies or something, most of the variety will come from the buildings and their input styles - even though they are single-key...
 
+# Technical Design:
+
+Four base classes: Game, InputManager, Tile, and Enemy.
+
+### Game
+
+Stores the game configuration and setup (difficulty, keyboard, etc.), will track resources and timers and other core game functionality like next building to build, current build-list-order, etc.
+
+### KingdomManager
+
+Handles the callbacks to the tiles as keyboard keys are pressed.
+
+### Tile
+
+Stores and displays and interacts: Stores the keybind letter text, stores the building it contains (for callback functionality), tracks health, if relevant, provides a collision box for the arcade physics to handle for us
+
+### Enemy
+
+Meant to be overriden with textures, sounds, etc.
+
+The default walks left, and has a callback when it collides with any tile, (tile handles 'damage')
+
 
 # Blog
 
@@ -76,3 +98,16 @@ Well, I'm not quite sold on it yet, but it looks like I'll be using [phaser 3](h
 I figure it won't be too rediculous considering that my game loop is "detect keys", move up to 100 things left, do collision detections, handle callbacks, done. 
 
 So I guess my next step is get hello world made: background image + keyboard image for layout (It'll probably just be static and 16:9 scale in a 1280x720 screen) + Kingdom image for the left four keys + detection of keydown events across the 53 total keys in the first go of this. The first four keys will result in a number go up, and the other keys will merely create an animatied explosion when pressed. No enemies yet. 
+
+### Days 6-10:
+
+Not much, mostly just made the thing fit to screen and use 1080p by default for internal resolution, Learned a bit about Webfont loading and got that working so I can use Google fonts, which is nice.
+
+### Day 11:
+
+Alrighty, my first real work day! Got a "Menu scene" with "ENTER" keyboard input, that loads the "Main" game scene, and that main scene can take data from the start() command from the menu scene. Figured out centering text and how to split everything up into separate js files because it's hard to keep everything separated otherwise. Will see how hard sharing data is...
+
+Also considered fullscreen, but then the escape key won't be available for pause, just gotta think that idea through...
+
+### Day 12:
+
