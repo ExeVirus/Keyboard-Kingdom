@@ -13,7 +13,7 @@ class Main extends Phaser.Scene
 
     preload ()
     {
-        this.load.setBaseURL('/');
+        this.load.setBaseURL('../');
         //----------------------- Scripts -----------------------
         this.load.scripts('game', [
             'js/kingdomManager.js',
