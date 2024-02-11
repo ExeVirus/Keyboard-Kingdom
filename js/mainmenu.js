@@ -25,7 +25,7 @@ class MainMenu extends Phaser.Scene
         //-------------------- Sound Effects --------------------
         
         //----------------------- Textures ----------------------
-        this.load.image('keyboard', 'keyboard.png');
+        this.load.image('keyboard', './keyboard.png');
     }
 
     create ()
