@@ -8,6 +8,14 @@ class MainMenu extends Phaser.Scene
     preload ()
     {
         this.load.setBaseURL('/');
+
+        //----------------------- Scripts -----------------------
+        this.load.scripts('game', [
+            'js/kingdomManager.js',
+            'js/tile.js',
+            'js/enemy.js',
+            'js/game.js'
+        ]);
         
         //------------------------ Fonts ------------------------
         this.load.addFile(new WebFontFile(this.load, 'Bungee'))
@@ -17,7 +25,6 @@ class MainMenu extends Phaser.Scene
         //-------------------- Sound Effects --------------------
         
         //----------------------- Textures ----------------------
-        this.load.image('key', 'keyboard.png');
     }
 
     create ()
