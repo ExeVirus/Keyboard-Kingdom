@@ -13,7 +13,7 @@ class Main extends Phaser.Scene
 
     preload ()
     {
-        this.load.setBaseURL('/');
+        this.load.setBaseURL('../');
         
         //------------------------ Fonts ------------------------
         this.load.addFile(new WebFontFile(this.load, 'Bungee'))
