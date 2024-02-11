@@ -7,8 +7,6 @@ class MainMenu extends Phaser.Scene
 
     preload ()
     {
-        this.load.setBaseURL('/');
-
         //----------------------- Scripts -----------------------
         this.load.scripts('game', [
             'js/kingdomManager.js',
