@@ -77,7 +77,7 @@ class MainMenu extends Phaser.Scene
     }
 
     createKeyTextures(keyColor) {
-        const fontStyle = {fontFamily: '"Arial"', fontSize: '40px', color: keyColor };
+        const fontStyle = {fontFamily: '"Bungee"', fontSize: '40px', color: keyColor };
         this.keys = [
             this.add.text(0,0,'~', fontStyle),
             this.add.text(0,0,'1', fontStyle),
@@ -94,7 +94,7 @@ class MainMenu extends Phaser.Scene
             this.add.text(0,0,'=', fontStyle),
             this.add.text(0,0,'⌫', fontStyle),
 
-            this.add.text(0,0,'⇥', fontStyle),
+            this.add.text(0,0,'TAB', fontStyle),
             this.add.text(0,0,'Q', fontStyle),
             this.add.text(0,0,'W', fontStyle),
             this.add.text(0,0,'E', fontStyle),
@@ -109,7 +109,7 @@ class MainMenu extends Phaser.Scene
             this.add.text(0,0,']', fontStyle),
             this.add.text(0,0,'\\', fontStyle),
 
-            this.add.text(0,0,'⇪', fontStyle),
+            this.add.text(0,0,'CAPS', fontStyle),
             this.add.text(0,0,'A', fontStyle),
             this.add.text(0,0,'S', fontStyle),
             this.add.text(0,0,'D', fontStyle),
@@ -121,9 +121,9 @@ class MainMenu extends Phaser.Scene
             this.add.text(0,0,'L', fontStyle),
             this.add.text(0,0,';', fontStyle),
             this.add.text(0,0,'\'', fontStyle),
-            this.add.text(0,0,'↵', fontStyle),
+            this.add.text(0,0,'ENTER', fontStyle),
 
-            this.add.text(0,0,'⇧', fontStyle),
+            this.add.text(0,0,'⬆', fontStyle),
             this.add.text(0,0,'Z', fontStyle),
             this.add.text(0,0,'X', fontStyle),
             this.add.text(0,0,'C', fontStyle),
@@ -134,7 +134,7 @@ class MainMenu extends Phaser.Scene
             this.add.text(0,0,',', fontStyle),
             this.add.text(0,0,'.', fontStyle),
             this.add.text(0,0,'/', fontStyle),
-            this.add.text(0,0,'⇧', fontStyle),
+            this.add.text(0,0,'⬆', fontStyle),
         ];
     }
 
