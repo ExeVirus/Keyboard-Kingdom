@@ -1,8 +1,8 @@
-class Main extends Phaser.Scene
+class Game extends Phaser.Scene
 {
     constructor ()
     {
-        super({ key: 'Main' });
+        super({ key: 'Game' });
     }
 
     init (data)
