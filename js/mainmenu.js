@@ -57,7 +57,6 @@ class MainMenu extends Phaser.Scene
             this.add.sprite(i*this.keySize/2 + this.keySize/4, this.keySize*2, keyboardString + (i+41)).setScale(0.5);
         }
 
-
         this.input.keyboard.on('keydown-ENTER', function () {
             this.scene.start('Game', { id: 0 });
         }, this);

@@ -109,5 +109,23 @@ Alrighty, my first real work day! Got a "Menu scene" with "ENTER" keyboard input
 
 Also considered fullscreen, but then the escape key won't be available for pause, just gotta think that idea through...
 
-### Day 12:
+### Day 18:
+
+So I learned that everything must be done in a dynamic texture, which is a render target. 
+
+Each key will, at creation, create its dynamic texture, and when something is built on it, that building texture will be used in the re-render of that key. The key then stores what building (string) it's keydown points to. On press, that keydown is called. "" empty string is a valid building (laser) Each building will have a callback for collision, and a callback for keypress. 
+
+Kingdom manager will contain these callbacks and buildings, as well as any tracker variables and timers required by the game mechanics.
+Note on design: should figure out a way to have all buildings defined, but have multiple instances of the same building (for separating cooldowns, when applicable, alternatively I could also just pass the key associated with that building callback, so we have more information.)
+
+Work completed: 
+- figured out the dynamic texture stuff
+- figured out how to load an image with text on it and position things with sprites
+
+Next Steps:
+- Next is click() and keydown callbacks for these keys and encapsulation of the key into its own class
+- Then kingdom manager on-press callbacks created for some buildings, for now focusing on "", "kingdom_1 -> kingdom_4"
+
+
+
 
