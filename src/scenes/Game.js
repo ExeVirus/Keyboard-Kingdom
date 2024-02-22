@@ -2,11 +2,11 @@ import { Scene } from 'phaser';
 import { WebFontFile } from '../extensions/webFont.js';
 import { KeyButton } from '../key_classes/KeyButton.js';
 
-export class MainMenu extends Scene
+export class Game extends Scene
 {
     constructor ()
     {
-        super('MainMenu');
+        super('Game');
         this.keySize = 270;
     }
 
@@ -45,7 +45,7 @@ export class MainMenu extends Scene
             this.add.sprite(i*this.keySize/2 + this.keySize/4, this.keySize*2, keyboardString + (i+41)).setScale(0.5);
         }
 
-        let button = new KeyButton(this, 500, 900-135, this.keySize/2, 'CTRL');
+        let button = new KeyButton(this, 500, 500, this.keySize, 'CTRL');
         this.add.existing(button);  
     }
 

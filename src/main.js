@@ -1,4 +1,6 @@
 import { MainMenu } from './scenes/MainMenu';
+import { AssetLoader } from './scenes/AssetLoader';
+import { Game } from './scenes/Game';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
@@ -7,7 +9,7 @@ const config = {
     width: 1920,
     height: 980,
     parent: 'game-container',
-    scene: [ MainMenu ],
+    scene: [ AssetLoader, MainMenu, Game ],
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: true

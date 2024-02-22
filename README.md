@@ -126,6 +126,19 @@ Next Steps:
 - Next is click() and keydown callbacks for these keys and encapsulation of the key into its own class
 - Then kingdom manager on-press callbacks created for some buildings, for now focusing on "", "kingdom_1 -> kingdom_4"
 
+### Day 21:
+
+Progress was getting slowed down in the absolute mess that is commonJS and ECMA and loading modules and whatnot. It's terible. 
+
+So I gave up on going it "simple" and broke down and got a copy of a template from the phaser folks using webpack. webpack is a super-bundler that is handy when it works, and painful because it has like 10,000 dependencies.... Anyways, I'm using `bun` instead of `node.js`, the install and stability is fricken amazing comparitively, I love it. 
+
+So to build and test this now:
+
+1. Install bun, which is always a single command line in some terminal
+2. nav to this repo / clone this repo
+3. bun install
+4. bun run dev
+5. Edit and make changes and things auto-reload pretty fast.
 
 
 

@@ -24,12 +24,13 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
     // key = just the letters from here: https://github.com/phaserjs/phaser/blob/v3.70.0/src/input/keyboard/keys/KeyCodes.js
     constructor(scene, x, y, sidelen, key) {
-        super(scene, x, y, key);
+        super(scene, x, y, 'key_light');
         // Save the sidelen, and key
         this.sidelen = sidelen;
-        this.key = 'keydown-' + key;
+        this.key = key;
 
         this.buildBaseTexture(scene);
+        this.setTexture(this.key);
 
         //turn on mouse clicks and keydowns
         this.enableInput(scene);
@@ -66,7 +67,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     enableInput(scene) {
         this.setInteractive()
             .on('pointerdown', () => this.activation() );
-        scene.input.keyboard.on(this.key, event =>
+        scene.input.keyboard.on('keydown-' + this.key, event =>
         {
             this.activation();
         });
@@ -79,10 +80,11 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
     buildBaseTexture(scene) {
         //build baseTexture
-        let text = scene.add.text(0,0,this.key, {fontFamily: '"Bungee"', fontSize: '40px', color: scene.keyColor })
+        let text = scene.add.text(0,0,this.key, {fontFamily: '"Bungee"', fontSize: '20px', color: '#000000' }) //TODO make color changable
         this.baseTexture = scene.textures.addDynamicTexture('base' + this.key, this.sidelen, this.sidelen);
-        this.baseTexture.stamp('key_' + scene.keyboard_color, null, this.sidelen, this.sidelen);
-        this.baseTexture.draw(text, 50, 50);
+        let scale = this.sidelen / scene.textures.get('key_light').getSourceImage().width;
+        this.baseTexture.stamp('key_light', null, 0, 0, { scale: scale, originX: 0, originY: 0}); //TODO make color changable
+        this.baseTexture.draw(text, 20, 20);
         text.destroy();
 
         // create the dynamicTexture
@@ -92,7 +94,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     }
 
     rebuildTexture() {
-        this.dynamic_texture.stamp('base' + this.key, null, this.sidelen, this.sidelen);
+        this.dynamic_texture.stamp('base' + this.key, null, 0, 0, { originX: 0, originY: 0});
         if(this.percent > -1) {
             // green bar TODO
         }
