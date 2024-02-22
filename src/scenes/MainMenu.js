@@ -1,21 +1,17 @@
-class MainMenu extends Phaser.Scene
+import { Scene } from 'phaser';
+import { WebFontFile } from '../extensions/webFont.js';
+import { KeyButton } from '../key_classes/KeyButton.js';
+
+export class MainMenu extends Scene
 {
     constructor ()
     {
-        super('menu');
+        super('MainMenu');
         this.keySize = 270;
     }
 
     preload ()
     {
-        //----------------------- Scripts -----------------------
-        this.load.scripts('game', [
-            'js/kingdomManager.js',
-            'js/tile.js',
-            'js/enemy.js',
-            'js/game.js'
-        ]);
-        
         //------------------------ Fonts ------------------------
         this.load.addFile(new WebFontFile(this.load, 'Bungee'))
 
@@ -24,21 +20,24 @@ class MainMenu extends Phaser.Scene
         //-------------------- Sound Effects --------------------
         
         //----------------------- Textures ----------------------
-        this.loadKeyImages();
-        //this.createKeyboardTexture('light', "#010101");
-
-        //------------ Keyboard Sprite Sheets https://www.patreon.com/posts/phaser-dev-log-73259650
+        this.load.image('key_dark', 'assets/key_dark.png');
+        this.load.image('key_blue', 'assets/key_blue.png');
+        this.load.image('key_light', 'assets/key_light.png');
     }
 
     create ()
     {
-        // const enter = 
-        let centerX = this.scale.parentSize.width / 2 
-        let centerY = this.scale.parentSize.height / 2+400
-        const start = this.add.text(centerX, centerY, 'Press <ENTER> to play', {
+        const start = this.add.text(0, 900, 'Press <ENTER> to play', {
             fontFamily: '"Bungee"',
             fontSize: '80px',
-        }).setOrigin(0.5);
+        });
+
+        this.input.keyboard.on('keydown-ENTER', function () {
+            this.scene.start('Game', { id: 0 });
+        }, this);
+
+        this.events.on('shutdown', this.shutdown, this);
+
 
         let keyColor = 'blue';
         let textColor = '#F1F1F1';
@@ -53,15 +52,12 @@ class MainMenu extends Phaser.Scene
         for(let i = 0; i < 13; i++) {
             this.add.sprite(i*this.keySize/2 + this.keySize/4, this.keySize*3/2, keyboardString + (i+28)).setScale(0.5);
         }
-        for(let i = 0; i < 12; i++) {
+        for(let i = 0; i < 11; i++) {
             this.add.sprite(i*this.keySize/2 + this.keySize/4, this.keySize*2, keyboardString + (i+41)).setScale(0.5);
         }
 
-        this.input.keyboard.on('keydown-ENTER', function () {
-            this.scene.start('Game', { id: 0 });
-        }, this);
-
-        this.events.on('shutdown', this.shutdown, this);
+        let button = new KeyButton(this, 500, 500, this.keySize, 'CTRL');
+        this.add.existing(button);  
     }
 
     shutdown ()
@@ -70,11 +66,7 @@ class MainMenu extends Phaser.Scene
         this.input.keyboard.shutdown();
     }
 
-    loadKeyImages() {
-        this.key_dark = this.load.image('key_dark', 'assets/key_dark.png');
-        this.key_blue = this.load.image('key_blue', 'assets/key_blue.png');
-        this.key_light = this.load.image('key_light', 'assets/key_light.png');
-    }
+
 
     createKeyTextures(keyColor) {
         const fontStyle = {fontFamily: '"Bungee"', fontSize: '40px', color: keyColor };
@@ -134,7 +126,6 @@ class MainMenu extends Phaser.Scene
             this.add.text(0,0,',', fontStyle),
             this.add.text(0,0,'.', fontStyle),
             this.add.text(0,0,'/', fontStyle),
-            this.add.text(0,0,'⬆', fontStyle),
         ];
     }
 

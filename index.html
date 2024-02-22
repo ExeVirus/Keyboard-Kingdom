@@ -1,35 +1,18 @@
-<!DOCTYPE html>
-<html background-color="black">
+<!doctype html>
+<html lang="en">
 <head>
-    <script src="phaser-arcade-physics.min.js"></script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+    <title>Keyboard Kingdom</title>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
-    <script src="js/webFont.js"></script>
-    <script src="js/mainmenu.js"></script>
-    <!-- <script src="js/game.js"></script> -->
-    <!-- <link href=" https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css " rel="stylesheet"> -->
-    <style> 
-        html { background-color: rgb(32, 41, 58); overflow-y: hidden; } 
-        body { margin: 0; }
-    </style>
 </head>
-<body>  
-<script>
-    const config = {
-        type: Phaser.AUTO,
-        width: 1920,
-        height: 980,
-        scene: [ MainMenu ],
-        scale: {
-            mode: Phaser.Scale.FIT,
-            autoCenter: true
-        },
-        backgroundColor: 0x000000, // Black background color
-        physics: {
-            default: 'arcade'
-        }
-    };
 
-    const game = new Phaser.Game(config);
-</script>
+<body>
+    <div id="app">
+        <div id="game-container"></div>
+    </div>
+    <!-- <script type="module" src="src/main.js"></script> -->
 </body>
 </html>

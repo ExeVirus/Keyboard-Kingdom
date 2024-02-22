@@ -1,4 +1,4 @@
-class WebFontFile extends Phaser.Loader.File
+export class WebFontFile extends Phaser.Loader.File
 {
     constructor(loader, fontNames, service = 'google')
     {
