@@ -140,5 +140,11 @@ So to build and test this now:
 4. bun run dev
 5. Edit and make changes and things auto-reload pretty fast.
 
+### Day 22:
+
+Sigh, this is taking too much time, but main menu is about done, Just have to get some remaining keys working. Turns out that phaser 3 doesn't define nearly all the keys at all. minus, equals, caps_lock, etc. They're all just wrong haha. I plan to make a custom handler using keyboard.js to help get the keycodes for what I want. 
+
+Either way, main menu now has a keyboard color selector just like I wanted!
+
 
 
