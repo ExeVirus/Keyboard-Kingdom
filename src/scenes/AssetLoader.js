@@ -19,8 +19,9 @@ export class AssetLoader extends Scene
         
         //----------------------- Textures ----------------------
         this.load.image('key_dark', 'assets/key_dark.png');
-        this.load.image('key_blue', 'assets/key_blue.png');
         this.load.image('key_light', 'assets/key_light.png');
+        this.load.image('key_red', 'assets/key_red.png');
+        this.load.image('key_blue', 'assets/key_blue.png');
     }
 
     create ()

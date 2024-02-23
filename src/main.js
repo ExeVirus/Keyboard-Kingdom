@@ -1,5 +1,5 @@
-import { MainMenu } from './scenes/MainMenu';
 import { AssetLoader } from './scenes/AssetLoader';
+import { MainMenu } from './scenes/MainMenu';
 import { Game } from './scenes/Game';
 
 //  Find out more information about the Game Config at:
@@ -7,7 +7,7 @@ import { Game } from './scenes/Game';
 const config = {
     type: Phaser.AUTO,
     width: 1920,
-    height: 980,
+    height: 1080,
     parent: 'game-container',
     scene: [ AssetLoader, MainMenu, Game ],
     scale: {
