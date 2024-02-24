@@ -9,20 +9,10 @@ export class MainMenu extends Scene
         super('MainMenu');
     }
 
-    preload ()
-    {
-    }
+    preload (){}
 
     create ()
     {
-        // const start = this.add.text(0, 900, 'Press <ENTER> to play', {
-        //     fontFamily: '"Bungee"',
-        //     fontSize: '80px',
-        // });
-
-        // this.input.keyboard.on('keydown-ENTER', function () {
-        //     this.scene.start('Game', { id: 0 });
-        // }, this);
         let scene = this.scene
         this.kingdomManager = {
             activation: function(keyButton) {
@@ -35,7 +25,7 @@ export class MainMenu extends Scene
         for(let i = 0; i < 4; i++) {
             for(let j = 0; j < 14; j++) {
                 if (j < constants.rowLengths[i]) {
-                    let button = new KeyButton(this, j*135+135/2, i*135+135/2, 135, constants.rowStartNum[i] + j, constants.keyColors[i], constants.textColors[j]);
+                    let button = new KeyButton(this, j*120+120/2, i*120+120/2+280, 120, constants.rowStartNum[i] + j, constants.keyColors[i], constants.textColors[j]);
                     this.add.existing(button);
                 }
             }
@@ -44,8 +34,6 @@ export class MainMenu extends Scene
 
     shutdown ()
     {
-        this.events.emit('sceneShutDown');
-        //  We need to clear keyboard events, or they'll stack up when the Menu is re-run
         this.input.keyboard.shutdown();
     }
 }

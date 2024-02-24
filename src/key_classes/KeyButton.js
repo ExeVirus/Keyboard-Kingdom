@@ -13,6 +13,7 @@
 // ----------------------------------------------------------------------------
 
 import { constants } from './constants.js';
+import keyboard from 'keyboardjs';
 
 export class KeyButton extends Phaser.GameObjects.Sprite {
     percent = -1;
@@ -45,8 +46,6 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
         //turn on mouse clicks and keydowns
         this.enableInput(scene);
-
-        scene.events.on('sceneShutDown', this.cleanup, this);
     }
 
     changeBuilding(building) {
@@ -75,11 +74,15 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     }
 
     enableInput(scene) {
-        this.setInteractive()
-            .on('pointerdown', () => this.activation() );
-        scene.input.keyboard.on('keydown-' + this.keySymbol, event =>
+        // clicks
+        this.setInteractive().on('pointerdown', () => this.activation() );
+        // keydowns
+        scene.input.keyboard.on('keydown', event =>
         {
-            this.activation();
+            event.preventDefault();
+            if(this.keySymbol.includes(event.keyCode)) {
+                this.activation();
+            }
         });
     }
 
@@ -91,7 +94,11 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     buildBaseTexture(scene) {
         //build baseTexture
         let text = scene.add.text(0,0,this.keyText, {fontFamily: '"Bungee"', fontSize: '20px', color: this.textColor }) //TODO make color changable
-        this.baseTexture = scene.textures.addDynamicTexture('base' + this.keyText, this.sidelen, this.sidelen);
+        if(scene.textures.exists('base' + this.keyText)) {
+            this.baseTexture = scene.textures.get('base' + this.keyText);
+        } else {
+            this.baseTexture = scene.textures.addDynamicTexture('base' + this.keyText, this.sidelen, this.sidelen);
+        }
         console.log(scene.textures);
         let scale = this.sidelen / scene.textures.get(this.keyColor).getSourceImage().width;
         this.baseTexture.stamp(this.keyColor, null, 0, 0, { scale: scale, originX: 0, originY: 0}); //TODO make color changable
@@ -99,7 +106,11 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         text.destroy();
 
         // create the dynamicTexture
-        this.dynamic_texture = scene.textures.addDynamicTexture(this.keyText, this.sidelen, this.sidelen);
+        if(scene.textures.exists(this.keyText)) {
+            this.dynamic_texture = scene.textures.get(this.keyText);
+        } else {
+            this.dynamic_texture = scene.textures.addDynamicTexture(this.keyText, this.sidelen, this.sidelen);
+        }
         // rebuild the dynamicTexture for first time
         this.rebuildTexture();
     }
@@ -115,11 +126,5 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         if(this.building != '') {
 
         }
-    }
-
-    cleanup() {
-        console.log("cleanup");
-        this.baseTexture.destroy();
-        this.dynamic_texture.destroy();
     }
 }

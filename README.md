@@ -146,5 +146,10 @@ Sigh, this is taking too much time, but main menu is about done, Just have to ge
 
 Either way, main menu now has a keyboard color selector just like I wanted!
 
+### Day 24 - part 1:
+
+Got the keyboard keys all working using keyboardjs! Also got some bugs from switching scenes all worked out. Got the keyboard positioned for playing now, probably won't move it for the rest of the game dev haha. Next step is to get some building textures, and create the building management system. Then on to enemies and we'll be close to finished.
+
+
 
 

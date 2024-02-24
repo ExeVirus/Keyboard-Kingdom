@@ -9,9 +9,7 @@ export class Game extends Scene
         super('Game');
     }
 
-    preload ()
-    {
-    }
+    preload (){}
 
     init(data)
     {
@@ -24,19 +22,23 @@ export class Game extends Scene
         for(let i = 0; i < 4; i++) {
             for(let j = 0; j < 14; j++) {
                 if (j < constants.rowLengths[i]) {
-                    console.log([this, j*135+135/2, i*135+135/2, 135, constants.rowStartNum[i] + j, this.keyColor, this.textColor])
-                    let button = new KeyButton(this, j*135+135/2, i*135+135/2, 135, constants.rowStartNum[i] + j, this.keyColor, this.textColor);
+                    let button = new KeyButton(this, j*120+120/2, i*120+120/2+280, 120, constants.rowStartNum[i] + j, this.keyColor, this.textColor);
                     this.add.existing(button);
                 }
             }
         }
 
         this.events.on('shutdown', this.shutdown, this);
+        let scene = this.scene
+        this.kingdomManager = {
+            activation: function(keyButton) {
+                scene.start('MainMenu');
+            }
+        }
     }
 
     shutdown ()
     {
-        //  We need to clear keyboard events, or they'll stack up when the Menu is re-run
         this.input.keyboard.shutdown();
     }
 }
