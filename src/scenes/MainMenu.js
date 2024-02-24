@@ -22,7 +22,7 @@ export class MainMenu extends Scene
 
         this.events.on('shutdown', this.shutdown, this);
         this.add.image(1920/2,80,'logo').setScale(0.6);
-        this.test = this.add.bitmapText(0, 0, 'sono', this.testNum);
+        this.test = this.add.bitmapText(0, 0, 'sono', this.testNum).setScale(0.5);
 
         for(let i = 0; i < 4; i++) {
             for(let j = 0; j < 14; j++) {
