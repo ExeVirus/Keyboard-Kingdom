@@ -21,15 +21,23 @@ export class MainMenu extends Scene
         }
 
         this.events.on('shutdown', this.shutdown, this);
+        this.add.image(1920/2,80,'logo').setScale(0.6);
+        this.test = this.add.bitmapText(0, 0, 'sono', this.testNum);
 
         for(let i = 0; i < 4; i++) {
             for(let j = 0; j < 14; j++) {
                 if (j < constants.rowLengths[i]) {
-                    let button = new KeyButton(this, j*120+120/2, i*120+120/2+280, 120, constants.rowStartNum[i] + j, constants.keyColors[i], constants.textColors[j]);
+                    let button = new KeyButton(this, j*135+135/2, i*135+135/2+220, 135, constants.rowStartNum[i] + j, constants.keyColors[i], constants.textColors[j]);
                     this.add.existing(button);
                 }
             }
         }
+    }
+
+    update(time, delta)
+    {
+        this.testNum = 1000 / delta;
+        this.test.text = this.testNum.toFixed(1);
     }
 
     shutdown ()

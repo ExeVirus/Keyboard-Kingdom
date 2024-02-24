@@ -79,19 +79,19 @@ The default walks left, and has a callback when it collides with any tile, (tile
 
 # Blog
 
-### Day 1
+### Day 1 (0.25 hours)
 
 Created this readme and repository.
 
-### Day 2
+### Day 2 (0.25 hours)
 
 Turns out Github (GH) is great for hosting your plain html sites - ideal for hosting my game right here from the repository. I went ahead and made index.html, which is alway what is loaded by the website by default. I may have to write the entire game in that single file, just so load times don't suffer for all of you. Assets would still be loaded separately, but at least I could make the game there. Went ahead and put the worlds smallest snake implementation there, it's literally 384 bytes, dang. So now the game is hosted [here](https://exevirus.github.io/Keyboard-Kingdom)
 
-### Day 3 & 4: 
+### Day 3 & 4: (0.1 hours)
 
 Yeah nothing - did have an idea inspired by Paul - One of the game modes will randomize the placement of the keys on the keyboard layout :)
 
-### Day 5:
+### Day 5: (0.5 hours)
 
 Well, I'm not quite sold on it yet, but it looks like I'll be using [phaser 3](https://phaser.io/phaser3) as my framework. I worry it will be too wordy or API heavy, but I think I see my path pretty straightforward - pretty much everything becomes a callback in this design or uses delta-time and I just hope the framerate stays at 60 FPS.
 
@@ -99,17 +99,17 @@ I figure it won't be too rediculous considering that my game loop is "detect key
 
 So I guess my next step is get hello world made: background image + keyboard image for layout (It'll probably just be static and 16:9 scale in a 1280x720 screen) + Kingdom image for the left four keys + detection of keydown events across the 53 total keys in the first go of this. The first four keys will result in a number go up, and the other keys will merely create an animatied explosion when pressed. No enemies yet. 
 
-### Days 6-10:
+### Days 6-10: (0.25 hours)
 
 Not much, mostly just made the thing fit to screen and use 1080p by default for internal resolution, Learned a bit about Webfont loading and got that working so I can use Google fonts, which is nice.
 
-### Day 11:
+### Day 11: (1.0 hours)
 
 Alrighty, my first real work day! Got a "Menu scene" with "ENTER" keyboard input, that loads the "Main" game scene, and that main scene can take data from the start() command from the menu scene. Figured out centering text and how to split everything up into separate js files because it's hard to keep everything separated otherwise. Will see how hard sharing data is...
 
 Also considered fullscreen, but then the escape key won't be available for pause, just gotta think that idea through...
 
-### Day 18:
+### Day 18: (0.75 hours)
 
 So I learned that everything must be done in a dynamic texture, which is a render target. 
 
@@ -126,7 +126,7 @@ Next Steps:
 - Next is click() and keydown callbacks for these keys and encapsulation of the key into its own class
 - Then kingdom manager on-press callbacks created for some buildings, for now focusing on "", "kingdom_1 -> kingdom_4"
 
-### Day 21:
+### Day 21: (1.5 hours)
 
 Progress was getting slowed down in the absolute mess that is commonJS and ECMA and loading modules and whatnot. It's terible. 
 
@@ -140,15 +140,19 @@ So to build and test this now:
 4. bun run dev
 5. Edit and make changes and things auto-reload pretty fast.
 
-### Day 22:
+### Day 22: (1 hours)
 
 Sigh, this is taking too much time, but main menu is about done, Just have to get some remaining keys working. Turns out that phaser 3 doesn't define nearly all the keys at all. minus, equals, caps_lock, etc. They're all just wrong haha. I plan to make a custom handler using keyboard.js to help get the keycodes for what I want. 
 
 Either way, main menu now has a keyboard color selector just like I wanted!
 
-### Day 24 - part 1:
+### Day 24 - part 1: (1.5 hours)
 
 Got the keyboard keys all working using keyboardjs! Also got some bugs from switching scenes all worked out. Got the keyboard positioned for playing now, probably won't move it for the rest of the game dev haha. Next step is to get some building textures, and create the building management system. Then on to enemies and we'll be close to finished.
+
+### Day 24 - part 2: (0.5 hours)
+
+Added a cool hip logo, also changed the main screen to be semi-centered
 
 
 

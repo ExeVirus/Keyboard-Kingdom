@@ -22,6 +22,9 @@ export class AssetLoader extends Scene
         this.load.image('key_light', 'assets/key_light.png');
         this.load.image('key_red', 'assets/key_red.png');
         this.load.image('key_blue', 'assets/key_blue.png');
+        this.load.image('logo', 'assets/logo.png');
+
+        this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
     }
 
     create ()

@@ -99,8 +99,8 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         } else {
             this.baseTexture = scene.textures.addDynamicTexture('base' + this.keyText, this.sidelen, this.sidelen);
         }
-        console.log(scene.textures);
         let scale = this.sidelen / scene.textures.get(this.keyColor).getSourceImage().width;
+        this.baseTexture.clear();
         this.baseTexture.stamp(this.keyColor, null, 0, 0, { scale: scale, originX: 0, originY: 0}); //TODO make color changable
         this.baseTexture.draw(text, 20, 20);
         text.destroy();
@@ -116,6 +116,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     }
 
     rebuildTexture() {
+        this.dynamic_texture.clear();
         this.dynamic_texture.stamp('base' + this.keyText, null, 0, 0, { originX: 0, originY: 0});
         if(this.percent > -1) {
             // green bar TODO
