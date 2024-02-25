@@ -10,10 +10,7 @@ export class Game extends Scene
         super('Game');
     }
 
-    preload ()
-    {
-        this.kingdomManager = new KindomManager();
-    }
+    preload () {}
 
     init(data)
     {
@@ -23,6 +20,9 @@ export class Game extends Scene
 
     create ()
     {
+        this.kingdomManager = new KindomManager(this, 1920/2, 910, 1600, 230);
+        // console.log(this.kingdomManager);
+        // this.add.existing(this.kingdomManager);
         for(let i = 0; i < 4; i++) {
             for(let j = 0; j < 14; j++) {
                 if (j < constants.rowLengths[i]) {
@@ -32,19 +32,18 @@ export class Game extends Scene
             }
         }
 
-        this.add.image(1920/2,80,'logo').setScale(0.6);
 
+        this.add.image(1920/2,80,'logo').setScale(0.6);
         this.events.on('shutdown', this.shutdown, this);
-        let scene = this.scene
-        this.kingdomManager = {
-            activation: function(keyButton) {
-                scene.start('MainMenu');
-            }
-        }
     }
 
     shutdown ()
     {
         this.input.keyboard.shutdown();
+    }
+
+    update(time, delta)
+    {
+        this.kingdomManager.update(time,delta);
     }
 }

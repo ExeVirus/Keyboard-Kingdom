@@ -154,6 +154,15 @@ Got the keyboard keys all working using keyboardjs! Also got some bugs from swit
 
 Added a cool hip logo, also changed the main screen to be semi-centered
 
+### Day 24 - part 3: (1.5 hours)
+
+Started the KingdomManager class, learned about 9-slice, created a progress meter class, implemented a callback so game keys affect the resource meter, meter correctly maxes out at 100 percent fill. Supports other colors for future bars, not very flexible otherwise. Created placeholders for
+the target building cost, and current resource amount. Support `Backspace` to go back to the main menu once in game so no refresh required. 
+
+Got new assets for the meter and kingdom manager background. It'll probably end up being a meter, resource amount, building, and building description. I will model the attack waves similar, but that progress bar will merely count up with time :D, maybe have checkpoints, but unlikely.
+
+I guess next is to add the building list (big json of thing, textureName, description, and cost) and tracking system for KingdomManager. Add teh bitmap text for the current progress, and maybe then some of the key callbacks when they do or do not have buildings on them. Perhaps implement the building system? uncertain as of yet.
+
 
 
 

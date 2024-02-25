@@ -13,7 +13,6 @@
 // ----------------------------------------------------------------------------
 
 import { constants } from './constants.js';
-import keyboard from 'keyboardjs';
 
 export class KeyButton extends Phaser.GameObjects.Sprite {
     percent = -1;
