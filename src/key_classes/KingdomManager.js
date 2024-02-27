@@ -40,6 +40,17 @@ export class KindomManager extends Phaser.GameObjects.Container
     addResource(amt)
     {
         this.resource += amt;
+        this.resource = Math.max(this.resource, 0); // shouldn't go negative
         this.resourceMeter.setPercent(this.resource/this.target);
+    }
+
+    trySubtract(amt)
+    {
+        if(this.resource >= amt) {
+            this.resource -= amt;
+            this.resourceMeter.setPercent(this.resource/this.target);
+            return true;
+        }
+        return false;
     }
 }

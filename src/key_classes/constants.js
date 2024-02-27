@@ -30,7 +30,6 @@ const keyText = [
     'SHFT','Z','X','C','V','B','N','M',',','.','/'
 ]
 
-
 //keyboardJS named keys
 const keyNames = [
     '`','1','2','3','4','5','6','7','8','9','0','-','equal','backspace',
