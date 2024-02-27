@@ -23,7 +23,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     keyText = -1;
     keySymbols = -1;
     keyNum = -1;
-    building  = '';
+    building  = null;
     keyColor = '';
     textColor = '';
     baseTexture;
@@ -49,15 +49,21 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
     changeBuilding(building) {
         this.building = building;
-        if(building != "") {
+        if(building != null) {
             this.enableCollisions();
+        } else {
+            this.disableCollisions();
         }
         this.rebuildTexture();
     }
 
     // Called by pressing key or clicking the button
     activation() {
-        this.scene.kingdomManager.activation(this)
+        if(this.building != null) {
+            this.building.activation(this);
+        } else {
+            this.scene.kingdomManager.activation(this)
+        }
     }
 
     collision(otherObject) {
@@ -78,7 +84,10 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         // keydowns
         scene.input.keyboard.on('keydown', event =>
         {
-            event.preventDefault();
+            if(!constants.keySymbols[constants.keyText.indexOf('R')].includes(event.keyCode) &&
+               !constants.keySymbols[constants.keyText.indexOf('SHFT')].includes(event.keyCode)) {
+                event.preventDefault(); //Shift and R are used to refresh (with cntl), kinda evil to block that for now
+            }
             if(this.keySymbol.includes(event.keyCode)) {
                 this.activation();
             }
@@ -123,7 +132,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         if(this.health > -1) {
 
         }
-        if(this.building != '') {
+        if(this.building != null) {
 
         }
     }

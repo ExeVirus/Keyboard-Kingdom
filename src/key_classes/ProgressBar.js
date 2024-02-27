@@ -6,10 +6,10 @@
 // minWidth is the pixels neded on left and right of the 9 slice
 // ----------------------------------------------------------------------------
 
-export class ProgressBar extends Phaser.GameObjects.Container
+export class ProgressBar
 {
     constructor(scene, x, y, width, height, meterTexture, minWidth, fillPercent) {
-        super(scene, x, y);
+        this.scene = scene
         this.x = x;
         this.width = width;
         this.minWidth = minWidth;
@@ -23,6 +23,5 @@ export class ProgressBar extends Phaser.GameObjects.Container
         fillPercent = Math.max(Math.min(fillPercent, 1),0); //clamp to 0,1
         this.meterYellow.width = Math.max(this.width * fillPercent, this.minWidth*2); //minWdith = 18
         this.meterYellow.x = this.x - this.width/2 + Math.max(this.width/2*fillPercent, this.minWidth);
-        console.log(fillPercent, Math.max(this.width * fillPercent, this.minWidth*2), this.x - this.width/2 + Math.max(this.width/2*fillPercent, this.minWidth))
     }
 }

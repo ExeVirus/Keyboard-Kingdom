@@ -23,9 +23,6 @@ export class KindomManager extends Phaser.GameObjects.Container
         this.background = scene.add.nineslice(x, y, 'kBack', '', width, height, 25, 25, 25, 25);
         this.inset = scene.add.nineslice(x, y, 'kInset', '', width-24, height-24, 25, 25, 25, 25);
         this.resourceMeter = new ProgressBar(scene, 1920/2, 850, 1500, 26, 'meterYellow', 5, 0);
-        //this.minWidth = 9; // nineslice left and right  = 18 pixels
-        //this.meterBack = scene.add.nineslice(x, y, 'meterBack', '', width-80, 26, this.minWidth, this.minWidth);
-        //this.meterYellow = scene.add.nineslice(x-width/2+40 + this.minWidth, y, 'meterYellow', '', this.minWidth*2, 24, this.minWidth, this.minWidth);
         this.target = 1000;
         this.resource = 0;
     }
@@ -33,8 +30,6 @@ export class KindomManager extends Phaser.GameObjects.Container
     activation (keyButton) {
         if(keyButton.keyText == '⌫') {
             this.scene.scene.start('MainMenu');
-        } else {
-            this.addResource(20);
         }
     }
 

@@ -28,6 +28,9 @@ export class AssetLoader extends Scene
         this.load.image('meterBack', 'assets/kmanager/meterBack.png');
         this.load.image('meterYellow', 'assets/kmanager/meterYellow.png');
 
+        //buildings
+        this.load.image('Castle', 'assets/buildings/Castle4.png');
+
         this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
     }
 

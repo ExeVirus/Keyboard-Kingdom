@@ -163,6 +163,15 @@ Got new assets for the meter and kingdom manager background. It'll probably end 
 
 I guess next is to add the building list (big json of thing, textureName, description, and cost) and tracking system for KingdomManager. Add teh bitmap text for the current progress, and maybe then some of the key callbacks when they do or do not have buildings on them. Perhaps implement the building system? uncertain as of yet.
 
+### Day 25 - design phase: (0.5 hours)
+
+1. Buildings will be a standalone class, and track a dynamic texture
+2. They will contain their description, health, and have update() and activation() methods
+3. They are stored on the KingdomManager, but a pointer stored in keyButton to that instance
+4. As they are created, they get pushed onto a list in the KingdomManager
+5. As they are destory, they are erased from that list, removed from the keyButton, and pushed to the front of the "next building" list
+    - They cost the same as before, that is kept with their instance. 
+
 
 
 
