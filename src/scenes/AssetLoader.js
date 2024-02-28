@@ -12,6 +12,7 @@ export class AssetLoader extends Scene
     {
         //------------------------ Fonts ------------------------
         this.load.addFile(new WebFontFile(this.load, 'Bungee'))
+        this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
 
         //------------------------ Music ------------------------
         
@@ -30,8 +31,7 @@ export class AssetLoader extends Scene
 
         //buildings
         this.load.image('Castle', 'assets/buildings/Castle4.png');
-
-        this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
+        this.load.image('Blacksmith', 'assets/buildings/Blacksmith.png');
     }
 
     create ()

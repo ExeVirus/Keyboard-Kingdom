@@ -3,6 +3,7 @@ import { Scene } from 'phaser';
 import { KeyButton } from '../key_classes/KeyButton.js';
 import { KindomManager } from '../key_classes/KingdomManager.js';
 import { Castle } from '../buildings/Castle.js'
+import { AllBuildings } from '../buildings/AllBuildings.js'
 
 export class Game extends Scene
 {
@@ -40,6 +41,7 @@ export class Game extends Scene
                                  this.keyButtons[constants.rowStartNum[3]],
                                  55,280+240-8,this, this.kingdomManager);
         this.add.existing(this.Castle);
+        this.Blacksmith = new AllBuildings.Blacksmith(this.keyButtons[3], this, this.kindomManager);
 
         this.add.image(1920/2,80,'logo').setScale(0.6);
         this.events.on('shutdown', this.shutdown, this);

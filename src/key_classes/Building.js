@@ -28,7 +28,8 @@ export class Building extends Phaser.GameObjects.Sprite
         } else {
             this.dynamicTexture = scene.textures.addDynamicTexture('dyn' + name, width, height);
         }
-        this.setTexture('dyn' + 'Castle');
+        this.setTexture('dyn' + name);
+        scene.add.existing(this);
     }
 
     update(time, delta) {}
