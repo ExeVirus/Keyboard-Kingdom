@@ -29,10 +29,13 @@ export class AssetLoader extends Scene
         this.load.image('meterBack', 'assets/kmanager/meterBack.png');
         this.load.image('meterYellow', 'assets/kmanager/meterYellow.png');
 
-        //buildings
+        // Buildings
         this.load.image('Castle', 'assets/buildings/Castle4.png');
         this.load.image('Blacksmith', 'assets/buildings/Blacksmith.png');
         this.load.image('Fire', 'assets/buildings/fire-sm.png');
+
+        // Enemies
+        this.load.image('Mouse', 'assets/enemies/Mouse.png');
     }
 
     create ()

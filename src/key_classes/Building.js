@@ -32,7 +32,9 @@ export class Building extends Phaser.GameObjects.Sprite
         scene.add.existing(this);
     }
 
-    update(time, delta) {}
-
-    activation(keyButton) {}
+    onCollide(Enemy)
+    {
+        console.log("Building Hit!");
+        Enemy.destroy();
+    }
 }

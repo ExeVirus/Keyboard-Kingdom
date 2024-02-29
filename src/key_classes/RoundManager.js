@@ -1,4 +1,5 @@
 import { constants } from './constants.js';
+import { AllEnemies } from '../enemies/AllEnemies.js';
 
 // ----------------------------------------------------------------------------
 //
@@ -81,8 +82,14 @@ export class RoundManager extends Phaser.GameObjects.Sprite
 
     spawnEnemies()
     {
-        console.log("spawned " + this.getEnemy().howMany + " " + this.getEnemy().what);
-        //TODO actually spawn them
+        for(let i = 0; i < this.getEnemy().howMany;i++) {
+            let lane = Math.floor(Math.random() * 4) + 1;
+            console.log(lane);
+            let enemy = new AllEnemies[this.getEnemy().enemy](this.scene, lane);
+            this.scene.physics.add.collider(enemy, this.scene.keyButtons, (enemy, keyButton) => {
+                keyButton.onCollide(enemy);
+            })
+        }
         this.enemyNum++;
     }
 

@@ -1,6 +1,7 @@
 import { constants } from '../key_classes/constants.js';
 import { Scene } from 'phaser';
 import { KeyButton } from '../key_classes/KeyButton.js';
+import { Enemy } from '../key_classes/Enemy.js';
 import { KingdomManager } from '../key_classes/KingdomManager.js';
 import { Castle } from '../buildings/Castle.js';
 import { RoundManager } from '../key_classes/RoundManager.js';

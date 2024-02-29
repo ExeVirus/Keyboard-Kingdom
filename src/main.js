@@ -5,7 +5,7 @@ import { Game } from './scenes/Game';
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config = {
-    type: Phaser.AUTO,
+    type: Phaser.WEBGL,
     width: 1920,
     height: 1080,
     parent: 'game-container',
@@ -16,7 +16,11 @@ const config = {
     },
     backgroundColor: 0x000000, // Black background color
     physics: {
-        default: 'arcade'
+        default: 'arcade',
+        arcade: {
+            gravity: {x:0,y:0},
+            debug: true,
+        }
     }
 };
 

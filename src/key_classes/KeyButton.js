@@ -45,15 +45,19 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
         //turn on mouse clicks and keydowns
         this.enableInput(scene);
+
+        //enable collisions
+        this.scene.physics.add.existing(this, true);
+        this.body.setSize(120, 120, true);
     }
 
     changeBuilding(building) {
         this.building = building;
-        if(building != null) {
-            this.enableCollisions();
-        } else {
-            this.disableCollisions();
-        }
+        // if(building != null) {
+        //     this.enableCollisions();
+        // } else {
+        //     this.disableCollisions();
+        // }
         this.rebuildTexture();
     }
 
@@ -66,16 +70,11 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         }
     }
 
-    collision(otherObject) {
-        //TODO
-    }
-
-    enableCollisions() {
-        //TODO
-        //this.scene.physics.arcade.enableBody(this);
-        //this.body.setCollideCallback(() => {
-            // your collision logic here
-        //});
+    onCollide(Enemy)
+    {
+        if(this.building != null) {
+            this.building.onCollide(Enemy);
+        }
     }
 
     enableInput(scene) {
@@ -92,11 +91,6 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
                 this.activation();
             }
         });
-    }
-
-    disableCollisions() {
-        //TODO
-        //this.scene.physics.arcade.disableBody(this); ??
     }
 
     buildBaseTexture(scene) {

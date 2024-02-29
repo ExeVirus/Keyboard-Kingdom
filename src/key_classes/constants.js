@@ -1,5 +1,5 @@
 import keyboard from 'keyboardjs';
-import { AllBuildings } from '../buildings/AllBuildings';
+import { AllBuildings } from '../buildings/AllBuildings.js';
 
 const textColors = [
     '#000000',
@@ -60,15 +60,15 @@ const Rounds = [
         enemies: [
             {
                 timePoint: 1000,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 1,
             },{
                 timePoint: 2000,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 1,
             },{
                 timePoint: 2500,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 1,
             },
         ]
@@ -78,15 +78,15 @@ const Rounds = [
         enemies: [
             {
                 timePoint: 0,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 1,
             },{
                 timePoint: 1000,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 2,
             },{
                 timePoint: 2000,
-                what: 'mouse',
+                enemy: 'Mouse',
                 howMany: 3,
             },
         ]
@@ -96,7 +96,7 @@ const Rounds = [
         enemies: [
             {
                 timePoint: 0,
-                what: 'BOSS',
+                enemy: 'Mouse',
                 howMany: 1,
             }
         ]
