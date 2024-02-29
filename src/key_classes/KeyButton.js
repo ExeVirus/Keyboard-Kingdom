@@ -101,7 +101,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
     buildBaseTexture(scene) {
         //build baseTexture
-        let text = scene.add.text(0,0,this.keyText, {fontFamily: '"Bungee"', fontSize: '20px', color: this.textColor }) //TODO make color changable
+        let text = scene.add.text(0,0,this.keyText, {fontFamily: '"Bungee"', fontSize: '20px', color: this.textColor })
         if(scene.textures.exists('base' + this.keyText)) {
             this.baseTexture = scene.textures.get('base' + this.keyText);
         } else {
@@ -109,7 +109,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
         }
         let scale = this.sidelen / scene.textures.get(this.keyColor).getSourceImage().width;
         this.baseTexture.clear();
-        this.baseTexture.stamp(this.keyColor, null, 0, 0, { scale: scale, originX: 0, originY: 0}); //TODO make color changable
+        this.baseTexture.stamp(this.keyColor, null, 0, 0, { scale: scale, originX: 0, originY: 0});
         this.baseTexture.draw(text, 20, 20);
         text.destroy();
 

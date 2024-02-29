@@ -29,15 +29,20 @@ export class KingdomManager extends Phaser.GameObjects.Container
         this.inset = scene.add.nineslice(x, y, 'kInset', '', width-24, height-24, 25, 25, 25, 25);
         this.resourceMeter = new ProgressBar(scene, 1920/2, 850, 1500, 26, 'meterYellow', 5, 0);
         this.resourceMeter.setPercent(this.resource/this.target);
-        this.progressText = this.scene.add.bitmapText(1920/2-200, 860, 'sono', this.resource.toString() + ' / ' + this.target.toString()).setScale(0.5);
+        this.progressText = this.scene.add.bitmapText(1920/2-200, 860, 'sono', this.getProgressText()).setScale(0.5);
+        this.progressText.setTint(0x000000);
         this.updateList = [];
         this.enableInput();
     }
 
+    getProgressText()
+    {
+        return 'Next Building: ' + constants.gameProgression[this.targetIdx].b.name + ' [' + this.resource.toFixed(0) + ' / ' + this.target.toFixed(0) + ']';
+    }
+
     enableInput()
     {
-        this.scene.input.keyboard.on('keydown', event =>
-        {
+        this.scene.input.keyboard.on('keydown', event => {
             if(constants.spacebar.includes(event.keyCode)) {
                 this.tryBuild();
             }
@@ -48,7 +53,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
     {
         if(this.resource >= this.target) {
             this.scene.kingdomManager.isBuilding = true;
-            this.progressText.text = '--BUILDING--';
+            this.progressText.text = '--BUILDING ' + constants.gameProgression[this.targetIdx].b.name + '--';
         }
     }
 
@@ -60,7 +65,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
             new constants.gameProgression[this.targetIdx].b(keyButton, this.scene, this);
             this.targetIdx += 1;
             this.target = constants.gameProgression[this.targetIdx].c;
-            this.progressText.text = this.resource.toString() + ' / ' + this.target.toString();
+            this.progressText.text = this.getProgressText();
             this.scene.kingdomManager.isBuilding = false;
             this.addToUpdateList(keyButton);
         }
@@ -91,7 +96,9 @@ export class KingdomManager extends Phaser.GameObjects.Container
         this.resource += amt;
         this.resource = Math.max(this.resource, 0); // shouldn't go negative
         this.resourceMeter.setPercent(this.resource/this.target);
-        this.progressText.text = this.resource.toString() + ' / ' + this.target.toString();
+        if(!this.scene.kingdomManager.isBuilding) {
+            this.progressText.text = this.getProgressText();
+        }
     }
 
     trySubtract(amt)
@@ -99,7 +106,9 @@ export class KingdomManager extends Phaser.GameObjects.Container
         if(this.resource >= amt) {
             this.resource -= amt;
             this.resourceMeter.setPercent(this.resource/this.target);
-            this.progressText.text = this.resource.toString() + ' / ' + this.target.toString();
+            if(!this.scene.kingdomManager.isBuilding) {
+                this.progressText.text = this.getProgressText();
+            }
             return true;
         }
         return false;

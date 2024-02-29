@@ -54,6 +54,55 @@ const gameProgression = [
     {'b': AllBuildings['Blacksmith'], 'c': 1000000},
 ]
 
+const Rounds = [
+    { // Round 1
+        totalTime: 3000,
+        enemies: [
+            {
+                timePoint: 1000,
+                what: 'mouse',
+                howMany: 1,
+            },{
+                timePoint: 2000,
+                what: 'mouse',
+                howMany: 1,
+            },{
+                timePoint: 2500,
+                what: 'mouse',
+                howMany: 1,
+            },
+        ]
+    },
+    { // Round 2
+        totalTime: 3000,
+        enemies: [
+            {
+                timePoint: 0,
+                what: 'mouse',
+                howMany: 1,
+            },{
+                timePoint: 1000,
+                what: 'mouse',
+                howMany: 2,
+            },{
+                timePoint: 2000,
+                what: 'mouse',
+                howMany: 3,
+            },
+        ]
+    },
+    { // Round 3
+        totalTime: 60000,
+        enemies: [
+            {
+                timePoint: 0,
+                what: 'BOSS',
+                howMany: 1,
+            }
+        ]
+    },
+]
+
 export const constants = {
     textColors,
     keyColors,
@@ -62,5 +111,6 @@ export const constants = {
     rowLengths,
     rowStartNum,
     gameProgression,
-    spacebar
+    spacebar,
+    Rounds
 };
