@@ -32,6 +32,7 @@ export class AssetLoader extends Scene
         //buildings
         this.load.image('Castle', 'assets/buildings/Castle4.png');
         this.load.image('Blacksmith', 'assets/buildings/Blacksmith.png');
+        this.load.image('Fire', 'assets/buildings/fire-sm.png');
     }
 
     create ()

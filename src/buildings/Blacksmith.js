@@ -3,30 +3,57 @@ import { VerticalHealthBar } from "../key_classes/VerticalHealthBar.js"
 
 export class Blacksmith extends Building
 {
-    constructor(keyButton, scene, kindomManager) {
-        super(scene, kindomManager, 'Blacksmith', 90, 90, 100)
+    constructor(keyButton, scene, kingdomManager) {
+        super(scene, kingdomManager, 'Blacksmith', 90, 90, 100);
         //this.healthBar = new VerticalHealthBar(scene, 'CastleHealth', x-5, y, 4, 480, 1);
         this.setPosition(keyButton.x+5, keyButton.y+8);
         this.keyButton = keyButton;
         keyButton.changeBuilding(this);
+        this.burn = 50;
+        this.lastBurn = this.burn;
+        this.canBurn = true;
+        this.lastUpdate = 0;
         this.rebuildTexture();
-        //scene.add.image(x,y,'dyn' + 'Castle');
     }
 
     rebuildTexture()
     {
         this.dynamicTexture.clear();
         this.dynamicTexture.stamp('Blacksmith', null, 0, 0, { originX: 0, originY: 0, scale: 0.12});
+        this.dynamicTexture.stamp('Fire', null, this.width/4, this.height/4, { originX: 0, originY: 0, scale: 0.5, alpha: (this.burn/100)});
+        if(this.canBurn == false) {
+            this.dynamicTexture.fill(0x000000, 0.5, 0, 60, this.width-20, this.height-70);//Light up first key
+        }
+        console.log(this.dynamicTexture);
     }
 
-    activation(keyButton) {
-        const idx = this.keyButtons.findIndex(e => e.keyText == keyButton.keyText);
-        if(idx == this.litKeyNum) {
-            this.kindomManager.addResource(30);
-            this.getNewKey();
+    activation(keyButton)
+    {
+        if(this.canBurn) {
+            this.burn += 15;
+            this.lastBurn = this.burn; //for reducing number of updates
+            this.burn = Math.min(this.burn, 100);
+            this.canBurn = false;
+            this.lastUpdate = this.scene.sys.game.getTime();
             this.rebuildTexture();
-        } else {
-            this.kindomManager.addResource(-30);
+            console.log(this.name);
         }
     }
+
+    update(time, delta)
+    {
+        this.burn -= delta/200;
+        this.burn = Math.max(this.burn, 0);
+        if(this.lastUpdate + 1000 < time) {
+            this.canBurn = true;
+        }
+        if(Math.abs(this.burn-this.lastBurn) > 2) {
+            this.lastBurn = this.burn + 0.1;
+            this.rebuildTexture();
+        }
+        if ('kingdomManager' in this) {
+            this.kingdomManager.addResource(this.burn/2 * delta/1000);
+        }
+    }
+
 }

@@ -3,8 +3,8 @@ import { VerticalHealthBar } from "../key_classes/VerticalHealthBar.js"
 
 export class Castle extends Building
 {
-    constructor(k1, k2, k3, k4, x, y, scene, kindomManager) {
-        super(scene, kindomManager, 'Castle', 108, 500, 100)
+    constructor(k1, k2, k3, k4, x, y, scene, kingdomManager) {
+        super(scene, kingdomManager, 'Castle', 108, 500, 100)
         //this.healthBar = new VerticalHealthBar(scene, 'CastleHealth', x-5, y, 4, 480, 1);
         this.setPosition(x, y);
         this.keyButtons = [k1, k2, k3, k4];
@@ -43,11 +43,11 @@ export class Castle extends Building
     activation(keyButton) {
         const idx = this.keyButtons.findIndex(e => e.keyText == keyButton.keyText);
         if(idx == this.litKeyNum) {
-            this.kindomManager.addResource(30);
+            this.kingdomManager.addResource(30);
             this.getNewKey();
             this.rebuildTexture();
         } else {
-            this.kindomManager.addResource(-30);
+            this.kingdomManager.addResource(-30);
         }
     }
 }

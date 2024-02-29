@@ -59,7 +59,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
 
     // Called by pressing key or clicking the button
     activation() {
-        if(this.building != null) {
+        if(this.building != null && !this.scene.kingdomManager.isBuilding) {
             this.building.activation(this);
         } else {
             this.scene.kingdomManager.activation(this)

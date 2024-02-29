@@ -1,4 +1,5 @@
 import keyboard from 'keyboardjs';
+import { AllBuildings } from '../buildings/AllBuildings';
 
 const textColors = [
     '#000000',
@@ -44,11 +45,22 @@ for (let i = 0; i < keyNames.length; i++) {
     keySymbols.push(keyboard.getLocale().getKeyCodes(keyNames[i]));
 }
 
+const spacebar = keyboard.getLocale().getKeyCodes('space');
+
+
+const gameProgression = [
+    {'b': AllBuildings['Blacksmith'], 'c': 500},
+    {'b': AllBuildings['Blacksmith'], 'c': 1000},
+    {'b': AllBuildings['Blacksmith'], 'c': 1000000},
+]
+
 export const constants = {
     textColors,
     keyColors,
     keyText,
     keySymbols,
     rowLengths,
-    rowStartNum
+    rowStartNum,
+    gameProgression,
+    spacebar
 };

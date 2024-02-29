@@ -15,20 +15,20 @@
 
 export class Building extends Phaser.GameObjects.Sprite
 {
-    constructor(scene, kindomManager, name, width, height, maxHealth) {
+    constructor(scene, kingdomManager, name, width, height, maxHealth) {
         super(scene, 0, 0, '');
         this.scene = scene
-        this.kindomManager = kindomManager
+        this.kingdomManager = kingdomManager
         this.maxHealth = maxHealth;
         this.curHealth = maxHealth;
-        this.name = name;
-        this.buildingTexture = scene.textures.get(name)
-        if(scene.textures.exists('dyn' + name)) {
-            this.dynamicTexture = scene.textures.get('dyn' + name);
+        this.name = name + kingdomManager.buildingNum.toString();
+        this.kingdomManager.buildingNum++;
+        if(scene.textures.exists('dyn' + this.name)) {
+            this.dynamicTexture = scene.textures.get('dyn' + this.name);
         } else {
-            this.dynamicTexture = scene.textures.addDynamicTexture('dyn' + name, width, height);
+            this.dynamicTexture = scene.textures.addDynamicTexture('dyn' + this.name, width, height);
         }
-        this.setTexture('dyn' + name);
+        this.setTexture('dyn' + this.name);
         scene.add.existing(this);
     }
 
