@@ -23,7 +23,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
         this.y = y;
         this.width = width;
         this.height = height;
-        this.resource = 975;
+        this.resource = 230;
         this.targetIdx = 0;
         this.target = this.getTarget().c;
         this.background = scene.add.nineslice(x, y, 'kBack', '', width, height, 25, 25, 25, 25);
@@ -46,6 +46,11 @@ export class KingdomManager extends Phaser.GameObjects.Container
 
     enableInput()
     {
+        this.scene.input.keyboard.on('keydown', event => {
+            if(constants.esc.includes(event.keyCode)) {
+                this.scene.scene.start('MainMenu');
+            }
+        });
         this.scene.input.keyboard.on('keydown', event => {
             if(constants.spacebar.includes(event.keyCode)) {
                 this.tryBuild();
@@ -133,7 +138,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
             let enemy = this.enemyList[i];
             const distX = Math.abs(enemy.x - keyButton.x);
             const distY = Math.abs(enemy.y - keyButton.y);
-            if(distX < 110 && distY < 110) {
+            if(distX < 125 && distY < 110) {
                 enemy.curHealth -= 60;
                 if(enemy.curHealth / enemy.startHealth < 0.03) {
                     enemy.destroy();

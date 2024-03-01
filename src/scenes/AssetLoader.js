@@ -15,8 +15,8 @@ export class AssetLoader extends Scene
         this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
 
         //------------------------ Music ------------------------
-        this.load.audio('GameMusic', 'assets/music.mp3');
-        this.load.audio('MainMenuMusic', 'assets/music.mp3');
+        this.load.audio('GameMusic', 'assets/GameMusic.mp3');
+        this.load.audio('MainMenuMusic', 'assets/MainMenuMusic.mp3');
         
         //-------------------- Sound Effects --------------------
         

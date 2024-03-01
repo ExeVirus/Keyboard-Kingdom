@@ -46,6 +46,7 @@ for (let i = 0; i < keyNames.length; i++) {
 }
 
 const spacebar = keyboard.getLocale().getKeyCodes('space');
+const esc = keyboard.getLocale().getKeyCodes('escape');
 
 
 const gameProgression = [
@@ -333,5 +334,6 @@ export const constants = {
     rowStartNum,
     gameProgression,
     spacebar,
+    esc,
     Rounds
 };

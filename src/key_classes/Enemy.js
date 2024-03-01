@@ -45,7 +45,7 @@ export class Enemy extends Phaser.GameObjects.Sprite
         if(this.healthBar != null) {
             this.healthBar.destroy();
         }
-        if('scene' in this && 'kingdomManager' in this.scene) {
+        if(this.scene != undefined) {
             this.scene.kingdomManager.removeEnemy(this);
         }
         super.destroy()

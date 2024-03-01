@@ -1,7 +1,6 @@
 import { constants } from '../key_classes/constants.js';
 import { Scene } from 'phaser';
 import { KeyButton } from '../key_classes/KeyButton.js';
-import { Enemy } from '../key_classes/Enemy.js';
 import { KingdomManager } from '../key_classes/KingdomManager.js';
 import { Castle } from '../buildings/Castle.js';
 import { RoundManager } from '../key_classes/RoundManager.js';
@@ -23,9 +22,9 @@ export class Game extends Scene
 
     create ()
     {
-        const music = this.sound.add('GameMusic');
-        music.play();
-        music.loop = true;
+        this.music = this.sound.add('GameMusic');
+        this.music.play();
+        this.music.loop = true;
         this.kingdomManager = new KingdomManager(this, 1920/2, 910, 1600, 230);
         this.roundManager = new RoundManager(this, 160, 200, 1600, 40);
         this.keyButtons = []
@@ -51,6 +50,8 @@ export class Game extends Scene
 
     shutdown ()
     {
+        this.music.stop();
+        this.music.destroy();
         this.input.keyboard.shutdown();
     }
 

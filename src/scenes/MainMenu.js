@@ -32,9 +32,9 @@ export class MainMenu extends Scene
                 }
             }
         }
-        const music = this.sound.add('MainMenuMusic');
-        music.play();
-        music.loop = true;
+        this.music = this.sound.add('MainMenuMusic');
+        this.music.play();
+        this.music.loop = true;
     }
 
     update(time, delta)
@@ -45,6 +45,8 @@ export class MainMenu extends Scene
 
     shutdown ()
     {
+        this.music.stop();
+        this.music.destroy();
         this.input.keyboard.shutdown();
     }
 }
