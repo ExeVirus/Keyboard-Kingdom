@@ -1,5 +1,6 @@
 import { constants } from './constants.js';
 import { AllEnemies } from '../enemies/AllEnemies.js';
+import { KingdomManager } from './KingdomManager.js';
 
 // ----------------------------------------------------------------------------
 //
@@ -84,8 +85,10 @@ export class RoundManager extends Phaser.GameObjects.Sprite
     {
         for(let i = 0; i < this.getEnemy().howMany;i++) {
             let lane = Math.floor(Math.random() * 4) + 1;
-            console.log(lane);
             let enemy = new AllEnemies[this.getEnemy().enemy](this.scene, lane);
+            if('kingdomManager' in this.scene) {
+                this.scene.kingdomManager.addEnemy(enemy);
+            }
             this.scene.physics.add.collider(enemy, this.scene.keyButtons, (enemy, keyButton) => {
                 keyButton.onCollide(enemy);
             })

@@ -28,6 +28,8 @@ export class AssetLoader extends Scene
         this.load.image('kInset', 'assets/kmanager/kInset.png');
         this.load.image('meterBack', 'assets/kmanager/meterBack.png');
         this.load.image('meterYellow', 'assets/kmanager/meterYellow.png');
+        this.load.image('White', 'assets/White.png');
+        this.load.image('Laser', 'assets/Laser.png');
 
         // Buildings
         this.load.image('Castle', 'assets/buildings/Castle4.png');

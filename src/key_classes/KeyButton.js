@@ -73,7 +73,7 @@ export class KeyButton extends Phaser.GameObjects.Sprite {
     onCollide(Enemy)
     {
         if(this.building != null) {
-            this.building.onCollide(Enemy);
+            this.building.onCollide(this, Enemy);
         }
     }
 

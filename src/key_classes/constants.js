@@ -49,9 +49,15 @@ const spacebar = keyboard.getLocale().getKeyCodes('space');
 
 
 const gameProgression = [
-    {'b': AllBuildings['Blacksmith'], 'c': 500},
-    {'b': AllBuildings['Blacksmith'], 'c': 1000},
-    {'b': AllBuildings['Blacksmith'], 'c': 1000000},
+    {'b': AllBuildings['Blacksmith'], 'c': 300},
+    {'b': AllBuildings['Blacksmith'], 'c': 700},
+    {'b': AllBuildings['Blacksmith'], 'c': 1400},
+    {'b': AllBuildings['Blacksmith'], 'c': 1800},
+    {'b': AllBuildings['Blacksmith'], 'c': 2400},
+    {'b': AllBuildings['Blacksmith'], 'c': 2800},
+    {'b': AllBuildings['Blacksmith'], 'c': 3200},
+    {'b': AllBuildings['Blacksmith'], 'c': 3600},
+    {'b': AllBuildings['Blacksmith'], 'c': 3800},
 ]
 
 const Rounds = [
@@ -61,25 +67,24 @@ const Rounds = [
             {
                 timePoint: 1000,
                 enemy: 'Mouse',
-                howMany: 1,
+                howMany: 3,
             },{
                 timePoint: 2000,
                 enemy: 'Mouse',
-                howMany: 1,
+                howMany: 3,
             },{
                 timePoint: 2500,
                 enemy: 'Mouse',
-                howMany: 1,
+                howMany: 3,
             },
         ]
-    },
-    { // Round 2
+    },{ // Round 2
         totalTime: 3000,
         enemies: [
             {
-                timePoint: 0,
+                timePoint: 200,
                 enemy: 'Mouse',
-                howMany: 1,
+                howMany: 3,
             },{
                 timePoint: 1000,
                 enemy: 'Mouse',
@@ -90,12 +95,62 @@ const Rounds = [
                 howMany: 3,
             },
         ]
-    },
-    { // Round 3
+    },{ // Round 2
+        totalTime: 3000,
+        enemies: [
+            {
+                timePoint: 200,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 1000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 2000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },
+        ]
+    },{ // Round 2
+        totalTime: 3000,
+        enemies: [
+            {
+                timePoint: 200,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 1000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 2000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },
+        ]
+    },{ // Round 2
+        totalTime: 3000,
+        enemies: [
+            {
+                timePoint: 200,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 1000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 2000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },
+        ]
+    },{ // Round 3
         totalTime: 60000,
         enemies: [
             {
-                timePoint: 0,
+                timePoint: 200,
                 enemy: 'Mouse',
                 howMany: 1,
             }

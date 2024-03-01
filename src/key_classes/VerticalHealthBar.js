@@ -1,38 +1,26 @@
 // ----------------------------------------------------------------------------
-//
 // Class: VerticalHealthBar
-// Desc: Implements:
-//     - fillPercent
 // ----------------------------------------------------------------------------
 
 export class VerticalHealthBar extends Phaser.GameObjects.Sprite
 {
-    constructor(scene, name, x, y, width, maxHeight, fillPercent) {
-        super(scene, x, y, 'green');
-        if(scene.textures.exists(name)) {
-            this.barTexture = scene.textures.get(name);
-        } else {
-            this.barTexture = scene.textures.addDynamicTexture(name, width, maxHeight);
-        }
-        this.scene = scene
-        this.x = x;
-        this.y = y;
+    constructor(scene, x, y, width, maxHeight) {
+        super(scene, x, y, 'White');
         this.width = width;
         this.maxHeight = maxHeight;
-        this.setPercent(fillPercent);
-        this.setTexture(this.barTexture);
+        this.setPercent(1);
+        scene.add.existing(this);
     }
 
     setPercent(fillPercent)
     {
-        this.barTexture.clear()
-        fillPercent = Math.max(Math.min(fillPercent, 1),0); //clamp to 0,1
-        let color = '#00FF00';
-        if(fillPercent < 0.25) {
-            color = '#FF0000';
-        } else if(fillPercent < 0.6) {
-            color = '#FFFF00';
+        this.setDisplaySize(this.width, this.maxHeight * fillPercent);
+        if(fillPercent > 0.7) {
+            this.setTint(0x00FF00); //green
+        } else if(fillPercent > 0.35) {
+            this.setTint(0xFFFF00); //yellow
+        } else {
+            this.setTint(0xFF0000); //red
         }
-        this.barTexture.fill(color, 1, 0, 0, this.width, this.maxHeight * fillPercent);
     }
 }

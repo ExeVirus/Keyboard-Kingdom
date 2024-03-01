@@ -3,17 +3,17 @@ import { VerticalHealthBar } from "../key_classes/VerticalHealthBar.js"
 
 export class Blacksmith extends Building
 {
-    constructor(keyButton, scene, kingdomManager) {
-        super(scene, kingdomManager, 'Blacksmith', 90, 90, 100);
-        //this.healthBar = new VerticalHealthBar(scene, 'CastleHealth', x-5, y, 4, 480, 1);
-        this.setPosition(keyButton.x+5, keyButton.y+8);
+    constructor(keyButton, scene, kingdomManager, progressionID) {
+        super(scene, kingdomManager, keyButton.x+5, keyButton.y+8, 'Blacksmith', 90, 90, 30);
         this.keyButton = keyButton;
+        this.progressionID = progressionID;
         keyButton.changeBuilding(this);
         this.burn = 50;
         this.lastBurn = this.burn;
         this.canBurn = true;
         this.lastUpdate = 0;
         this.rebuildTexture();
+        this.healthBar = new VerticalHealthBar(scene, keyButton.x - 60, keyButton.y-10, 4, 100);
     }
 
     rebuildTexture()
@@ -24,7 +24,6 @@ export class Blacksmith extends Building
         if(this.canBurn == false) {
             this.dynamicTexture.fill(0x000000, 0.5, 0, 60, this.width-20, this.height-70);//Light up first key
         }
-        console.log(this.dynamicTexture);
     }
 
     activation(keyButton)
@@ -36,7 +35,6 @@ export class Blacksmith extends Building
             this.canBurn = false;
             this.lastUpdate = this.scene.sys.game.getTime();
             this.rebuildTexture();
-            console.log(this.name);
         }
     }
 

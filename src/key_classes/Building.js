@@ -1,3 +1,5 @@
+import { VerticalHealthBar } from "./VerticalHealthBar.js";
+
 // ----------------------------------------------------------------------------
 //
 // Class: Building
@@ -15,8 +17,8 @@
 
 export class Building extends Phaser.GameObjects.Sprite
 {
-    constructor(scene, kingdomManager, name, width, height, maxHealth) {
-        super(scene, 0, 0, '');
+    constructor(scene, kingdomManager, x, y, name, width, height, maxHealth) {
+        super(scene, x, y, '');
         this.scene = scene
         this.kingdomManager = kingdomManager
         this.maxHealth = maxHealth;
@@ -30,11 +32,45 @@ export class Building extends Phaser.GameObjects.Sprite
         }
         this.setTexture('dyn' + this.name);
         scene.add.existing(this);
+        this.healthBar = null;
     }
 
-    onCollide(Enemy)
+    onCollide(keyButton, Enemy)
     {
-        console.log("Building Hit!");
-        Enemy.destroy();
+        if(Enemy.curHealth >= this.curHealth) {
+            Enemy.curHealth -= this.curHealth;
+            this.kingdomManager.reAddTarget(keyButton.building.progressionID);
+            keyButton.changeBuilding(null);
+            this.kingdomManager.removeFromUpdateList(keyButton);
+            this.destroy();
+            if(Enemy.curHealth / Enemy.startHealth < 0.05) {
+                Enemy.destroy();
+            } else {
+                Enemy.updateHealthBar();
+            }
+        } else {
+            this.curHealth -= Enemy.curHealth;
+            if(this.curHealth / this.maxhealth < 0.05) {
+                this.destroy();
+            } else {
+                this.updateHealthBar();
+            }
+            Enemy.destroy();
+        }
+    }
+
+    updateHealthBar()
+    {
+        if(this.healthBar != null) {
+            this.healthBar.setPercent(this.curHealth / this.maxHealth);
+        }
+    }
+
+    destroy()
+    {
+        if(this.healthBar != null) {
+            this.healthBar.destroy();
+        }
+        super.destroy();
     }
 }
