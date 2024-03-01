@@ -7,7 +7,6 @@ Thumbs.db
 *.sublime-workspace
 *.vscode
 bun.lockb
-FUTURE ASSETS/
 
 # Vendors
 node_modules/
