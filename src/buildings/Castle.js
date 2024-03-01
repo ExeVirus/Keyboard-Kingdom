@@ -4,7 +4,7 @@ import { VerticalHealthBar } from "../key_classes/VerticalHealthBar.js"
 export class Castle extends Building
 {
     constructor(k1, k2, k3, k4, x, y, scene, kingdomManager) {
-        super(scene, kingdomManager, x, y, 'Castle', 108, 500, 120)
+        super(scene, kingdomManager, x, y, 'Castle', 108, 500, 500)
         this.keyButtons = [k1, k2, k3, k4];
         k1.changeBuilding(this);
         k2.changeBuilding(this);

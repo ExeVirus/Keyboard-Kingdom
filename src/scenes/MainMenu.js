@@ -32,6 +32,9 @@ export class MainMenu extends Scene
                 }
             }
         }
+        const music = this.sound.add('MainMenuMusic');
+        music.play();
+        music.loop = true;
     }
 
     update(time, delta)

@@ -23,6 +23,9 @@ export class Game extends Scene
 
     create ()
     {
+        const music = this.sound.add('GameMusic');
+        music.play();
+        music.loop = true;
         this.kingdomManager = new KingdomManager(this, 1920/2, 910, 1600, 230);
         this.roundManager = new RoundManager(this, 160, 200, 1600, 40);
         this.keyButtons = []

@@ -104,7 +104,7 @@ export class RoundManager extends Phaser.GameObjects.Sprite
         }
         if(time >= this.roundStart + this.currentRound.totalTime) {
             this.roundStart = time;
-            this.currentRoundNum++;
+            this.currentRoundNum = Math.min(this.currentRoundNum + 1, 5); // only 5 rounds, last one repeats
             this.RoundText.text = this.getRoundText();
             this.currentRound = constants.Rounds[this.currentRoundNum-1];
             this.enemyNum = 0;

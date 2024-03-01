@@ -58,102 +58,268 @@ const gameProgression = [
     {'b': AllBuildings['Blacksmith'], 'c': 3200},
     {'b': AllBuildings['Blacksmith'], 'c': 3600},
     {'b': AllBuildings['Blacksmith'], 'c': 3800},
+    {'b': AllBuildings['Blacksmith'], 'c': 4200},
+    {'b': AllBuildings['Blacksmith'], 'c': 4600},
+    {'b': AllBuildings['Blacksmith'], 'c': 5000},
+    {'b': AllBuildings['Blacksmith'], 'c': 5500},
+    {'b': AllBuildings['Blacksmith'], 'c': 6000},
+    {'b': AllBuildings['Blacksmith'], 'c': 6500},
+    {'b': AllBuildings['Blacksmith'], 'c': 7000},
+    {'b': AllBuildings['Blacksmith'], 'c': 7500},
+    {'b': AllBuildings['Blacksmith'], 'c': 8000},
+    {'b': AllBuildings['Blacksmith'], 'c': 8500},
+    {'b': AllBuildings['Blacksmith'], 'c': 9000},
+    {'b': AllBuildings['Blacksmith'], 'c': 9500},
+    {'b': AllBuildings['Blacksmith'], 'c': 10000},
+    {'b': AllBuildings['Blacksmith'], 'c': 50000},
+    {'b': AllBuildings['Blacksmith'], 'c': 500000000},
 ]
 
 const Rounds = [
-    { // Round 1
-        totalTime: 3000,
+    { //Round 1 - Mice
+        totalTime: 10000,
         enemies: [
             {
-                timePoint: 1000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 2000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 2500,
-                enemy: 'Mouse',
-                howMany: 3,
-            },
-        ]
-    },{ // Round 2
-        totalTime: 3000,
-        enemies: [
-            {
-                timePoint: 200,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 1000,
-                enemy: 'Mouse',
-                howMany: 2,
-            },{
-                timePoint: 2000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },
-        ]
-    },{ // Round 2
-        totalTime: 3000,
-        enemies: [
-            {
-                timePoint: 200,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 1000,
-                enemy: 'Mouse',
-                howMany: 2,
-            },{
-                timePoint: 2000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },
-        ]
-    },{ // Round 2
-        totalTime: 3000,
-        enemies: [
-            {
-                timePoint: 200,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 1000,
-                enemy: 'Mouse',
-                howMany: 2,
-            },{
-                timePoint: 2000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },
-        ]
-    },{ // Round 2
-        totalTime: 3000,
-        enemies: [
-            {
-                timePoint: 200,
-                enemy: 'Mouse',
-                howMany: 3,
-            },{
-                timePoint: 1000,
-                enemy: 'Mouse',
-                howMany: 2,
-            },{
-                timePoint: 2000,
-                enemy: 'Mouse',
-                howMany: 3,
-            },
-        ]
-    },{ // Round 3
-        totalTime: 60000,
-        enemies: [
-            {
-                timePoint: 200,
+                timePoint: 5000,
                 enemy: 'Mouse',
                 howMany: 1,
-            }
+            },{
+                timePoint: 7500,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 9500,
+                enemy: 'Mouse',
+                howMany: 1,
+            },
+        ]
+    },{ //Round 2 - Microphones
+        totalTime: 20000,
+        enemies: [
+            {
+                timePoint: 0,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 5000,
+                enemy: 'Microphone',
+                howMany: 1,
+            },{
+                timePoint: 10000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 15000,
+                enemy: 'Microphone',
+                howMany: 2,
+            },{
+                timePoint: 16000,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 16500,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 17000,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 18000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },
+        ]
+    },{ //Round 3 - Joystick
+        totalTime: 20000,
+        enemies: [
+            {
+                timePoint: 0,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 5000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 6000,
+                enemy: 'Microphone',
+                howMany: 2,
+            },{
+                timePoint: 8000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 12000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 16500,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 17000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 18000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },
+        ]
+    },{ //Round 4 - Speaker
+        totalTime: 40000,
+        enemies: [
+            {
+                timePoint: 20000,
+                enemy: 'Speaker',
+                howMany: 1,
+            },{
+                timePoint: 21000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 22000,
+                enemy: 'Joystick',
+                howMany: 2,
+            },{
+                timePoint: 23000,
+                enemy: 'Microphone',
+                howMany: 2,
+            },{
+                timePoint: 24000,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 25000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 26000,
+                enemy: 'Microphone',
+                howMany: 1,
+            },{
+                timePoint: 27000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },
+        ]
+    },{ //Round 5 - Controller
+        totalTime: 30000,
+        enemies: [
+            {
+                timePoint: 0,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 1000,
+                enemy: 'Microphone',
+                howMany: 2,
+            },{
+                timePoint: 3000,
+                enemy: 'Joystick',
+                howMany: 2,
+            },{
+                timePoint: 7000,
+                enemy: 'Controller',
+                howMany: 2,
+            },{
+                timePoint: 8000,
+                enemy: 'Speaker',
+                howMany: 1,
+            },{
+                timePoint: 9000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 10000,
+                enemy: 'Microphone',
+                howMany: 1,
+            },{
+                timePoint: 11000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 12000,
+                enemy: 'Controller',
+                howMany: 1,
+            },{
+                timePoint: 13000,
+                enemy: 'Controller',
+                howMany: 1,
+            },{
+                timePoint: 14000,
+                enemy: 'Mouse',
+                howMany: 1,
+            },{
+                timePoint: 14500,
+                enemy: 'Joystick',
+                howMany: 2,
+            },{
+                timePoint: 15000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 15500,
+                enemy: 'Speaker',
+                howMany: 1,
+            },{
+                timePoint: 16000,
+                enemy: 'Microphone',
+                howMany: 1,
+            },{
+                timePoint: 17000,
+                enemy: 'Controller',
+                howMany: 1,
+            },{
+                timePoint: 17500,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 18000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 19000,
+                enemy: 'Controller',
+                howMany: 1,
+            },{
+                timePoint: 20000,
+                enemy: 'Controller',
+                howMany: 1,
+            },{
+                timePoint: 21000,
+                enemy: 'Mouse',
+                howMany: 3,
+            },{
+                timePoint: 23000,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 23500,
+                enemy: 'Joystick',
+                howMany: 1,
+            },{
+                timePoint: 24000,
+                enemy: 'Microphone',
+                howMany: 1,
+            },{
+                timePoint: 25000,
+                enemy: 'Mouse',
+                howMany: 2,
+            },{
+                timePoint: 26000,
+                enemy: 'Speaker',
+                howMany: 1,
+            },{
+                timePoint: 28000,
+                enemy: 'Controller',
+                howMany: 2,
+            },{
+                timePoint: 29000,
+                enemy: 'Speaker',
+                howMany: 1,
+            },
         ]
     },
 ]

@@ -1,10 +1,10 @@
 import { Enemy } from "../key_classes/Enemy.js"
 
-export class Mouse extends Enemy
+export class Controller extends Enemy
 {
     constructor(scene, lane) {
-        super(scene, lane, 80, 30);
-        this.setTexture('Mouse');
+        super(scene, lane, 60, 180);
+        this.setTexture('Controller');
         this.setDisplaySize(120,120);
     }
 }

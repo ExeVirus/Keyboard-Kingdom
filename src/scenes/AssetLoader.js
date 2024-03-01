@@ -15,6 +15,8 @@ export class AssetLoader extends Scene
         this.load.bitmapFont('sono', 'assets/sono.png', 'assets/sono.xml');
 
         //------------------------ Music ------------------------
+        this.load.audio('GameMusic', 'assets/music.mp3');
+        this.load.audio('MainMenuMusic', 'assets/music.mp3');
         
         //-------------------- Sound Effects --------------------
         
@@ -38,6 +40,10 @@ export class AssetLoader extends Scene
 
         // Enemies
         this.load.image('Mouse', 'assets/enemies/Mouse.png');
+        this.load.image('Microphone', 'assets/enemies/Microphone.png');
+        this.load.image('Joystick', 'assets/enemies/Joystick.png');
+        this.load.image('Controller', 'assets/enemies/Controller.png');
+        this.load.image('Speaker', 'assets/enemies/Speaker.png');
     }
 
     create ()

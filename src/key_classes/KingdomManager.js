@@ -80,11 +80,8 @@ export class KingdomManager extends Phaser.GameObjects.Container
             this.progressText.text = this.getProgressText();
             this.scene.kingdomManager.isBuilding = false;
             this.addToUpdateList(keyButton);
-        } else if(this.laser == null && this.trySubtract(80)) {
+        } else if(this.laser == null && this.trySubtract(70)) {
             this.fireLaserAtEnemiesNear(keyButton);
-        }
-        if(keyButton.keyText == '⌫') {
-            this.scene.scene.start('MainMenu');
         }
     }
 
@@ -137,7 +134,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
             const distX = Math.abs(enemy.x - keyButton.x);
             const distY = Math.abs(enemy.y - keyButton.y);
             if(distX < 110 && distY < 110) {
-                enemy.curHealth -= 50;
+                enemy.curHealth -= 60;
                 if(enemy.curHealth / enemy.startHealth < 0.03) {
                     enemy.destroy();
                 } else {
@@ -145,7 +142,7 @@ export class KingdomManager extends Phaser.GameObjects.Container
                 }
             }
         }
-        this.laser = new Laser(this.scene, this, keyButton.x, keyButton.y, 800);
+        this.laser = new Laser(this.scene, this, keyButton.x, keyButton.y, 200);
     }
 
     update(time,delta)

@@ -4,7 +4,7 @@ import { VerticalHealthBar } from "../key_classes/VerticalHealthBar.js"
 export class Blacksmith extends Building
 {
     constructor(keyButton, scene, kingdomManager, progressionID) {
-        super(scene, kingdomManager, keyButton.x+5, keyButton.y+8, 'Blacksmith', 90, 90, 30);
+        super(scene, kingdomManager, keyButton.x+5, keyButton.y+8, 'Blacksmith', 90, 90, 60);
         this.keyButton = keyButton;
         this.progressionID = progressionID;
         keyButton.changeBuilding(this);
